@@ -181,26 +181,30 @@ nav.navbar{
     height: 60px;
     background-color: rgb(255, 255, 255);
     display: flex;
-    justify-content: center;
     position: sticky;
     top: 0px;
     z-index: 999;
-    animation: nav__anim 6s linear infinite;
-}
-@keyframes nav__anim{
-    0%{
-        box-shadow: 0 2px 10px 0 rgb(34, 34, 34);
-    }
-    50%{
-        box-shadow: 0 2px 20px 0 rgb(34, 34, 34);
-    }
-    100%{
-        box-shadow: 0 2px 10px 0 rgb(34, 34, 34);
-    }
+    box-shadow:2px 5px 20px #171414;
 }
 /* in navbar */
 @media screen {
     @media(min-width: 1320px){
+        /* language************************************/
+        .lang__right{
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            right: 0;
+            padding: 10px;
+            z-index: 10;
+        }
+        .lang__right a{
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+
         .section-1__content__right__center .bottom__word{
             font-size: 27px;
         }
@@ -253,6 +257,21 @@ nav.navbar{
         }
     }
     @media(max-width: 1319px){
+        /* language************************************/
+        .lang__right{
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            right: 0;
+            z-index: 10;
+            padding: 10px;
+        }
+        .lang__right a{
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(61 ,75 ,118);
+        }
         .section-1__content__right__center .bottom__word{
             font-size: 27px;
         }
@@ -383,6 +402,9 @@ nav.navbar{
             justify-content: center;
             align-items: center;
         }
+        .lang__right{
+            padding: 5px;
+        }
     }
     @media(max-width: 768px){
         section.section-1{
@@ -405,6 +427,22 @@ nav.navbar{
         }
     }
     @media(max-width: 668px){
+        /* language************************************/
+        .lang__right{
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            right: 0;
+            padding: 10px;
+            z-index: 10;
+            font-size: 13px;
+        }
+        .lang__right a{
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
         section.section-1{
             padding: 0 20px;
         }
@@ -428,6 +466,10 @@ nav.navbar{
         }
     }
     @media(max-width: 570px){
+        /* language************************************/
+        .lang__right{
+            display: none;
+        }
         /* имя */
         .section-1__content__right__top{
             font-size: 35px;
@@ -440,18 +482,14 @@ nav.navbar{
             max-width: 450px;
         }
         .left__side img{
-            width: 98%;
+            width: 85%;
             height: 70%;
         }
         .left__side{
             align-items: center;
         }
         .center__side{
-            width: 200px;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: none;
         }
     }
     @media(max-width: 480px){
@@ -560,13 +598,15 @@ nav.navbar{
     display: block;
     width: 100%;
     color: white;
-    padding: 10px;
     text-decoration: none;
     background-color: #171414;
+    transition: all .3s;
+}
+.a-hamburger__line:hover {
+    filter: brightness(130%);
 }
 .a-hamburger__line:nth-child(2){
-    border-top: 2px grey solid;
-    border-bottom: 2px grey solid;
+    border-top: 2px #3c3c3c solid;
 }
 #check-menu:checked ~ .main-menu{
     max-height: 500px;
@@ -575,16 +615,14 @@ nav.navbar{
 /* rotation */
 #check-menu:checked ~ .first{
     display: none;
-}
-#check-menu:checked ~ .second{
+}#check-menu:checked ~ .second{
     transform: rotate(45deg);
     width: 28px;
 
 }#check-menu:checked ~ .third{
     transform: rotate(-45deg);
     width: 28px;
-}
-#check-menu:checked ~ .fourth{
+}#check-menu:checked ~ .fourth{
     display: none;
 }
 .in__navbar{
@@ -592,6 +630,9 @@ nav.navbar{
     height: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
 }
 .center__side{
     width: 200px;
@@ -650,134 +691,6 @@ nav.navbar{
 #clock{
     margin-right: 12px;
 }
-/* PRELOAD************************************************ */
-.preloader{
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index: 1000;
-    opacity: 1;
-    visibility: visible;
-}
-.loader{
-    width: 200px;
-    height: 70px;
-    transform: translate(-50% , -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.loader img{
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-}
-.done{
-    opacity: 0;
-    visibility: hidden;
-}
-/* загрузка */
-.wrapper {
-	padding-left: 1em;
-	padding-right: 0em;
-	margin: auto;
-	display: block;
-	width: 65px;
-}
-.cssload-loader {
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	margin: 1em;
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;
-    top: -18px;
-}
-.cssload-loader,
-.cssload-loader:before,
-.cssload-loader:after {
-	animation: 1.15s infinite ease-in-out;
-		-o-animation: 1.15s infinite ease-in-out;
-		-ms-animation: 1.15s infinite ease-in-out;
-		-webkit-animation: 1.15s infinite ease-in-out;
-		-moz-animation: 1.15s infinite ease-in-out;
-}
-.cssload-loader:before,
-.cssload-loader:after {
-	width: 100%; 
-	height: 100%;
-	border-radius: 50%;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.cssload-loader:before,
-.cssload-loader:after {
-		content: "";
-}
-
-.cssload-loader:before,
-.cssload-loader:after {
-		content: "";
-		background-color: rgb(199,199,199);
-		transform: scale(0);
-		-o-transform: scale(0);
-		-ms-transform: scale(0);
-		-webkit-transform: scale(0);
-		-moz-transform: scale(0);
-		animation: cssload-animation 1.73s infinite ease-in-out;
-		-o-animation: cssload-animation 1.73s infinite ease-in-out;
-		-ms-animation: cssload-animation 1.73s infinite ease-in-out;
-		-webkit-animation: cssload-animation 1.73s infinite ease-in-out;
-		-moz-animation: cssload-animation 1.73s infinite ease-in-out;
-}
-.cssload-loader:after { animation-delay: 0.86s;
-		-o-animation-delay: 0.86s;
-		-ms-animation-delay: 0.86s;
-		-webkit-animation-delay: 0.86s;
-		-moz-animation-delay: 0.86s; }
-
-
-
-@keyframes cssload-animation {
-	0%	 { transform: translateX(-100%) scale(0); }
-	50%	{ transform: translateX(0%)		scale(1); }
-	100% { transform: translateX(100%)	scale(0); }
-}
-
-@-o-keyframes cssload-animation {
-	0%	 { -o-transform: translateX(-100%) scale(0); }
-	50%	{ -o-transform: translateX(0%)		scale(1); }
-	100% { -o-transform: translateX(100%)	scale(0); }
-}
-
-@-ms-keyframes cssload-animation {
-	0%	 { -ms-transform: translateX(-100%) scale(0); }
-	50%	{ -ms-transform: translateX(0%)		scale(1); }
-	100% { -ms-transform: translateX(100%)	scale(0); }
-}
-
-@-webkit-keyframes cssload-animation {
-	0%	 { -webkit-transform: translateX(-100%) scale(0); }
-	50%	{ -webkit-transform: translateX(0%)		scale(1); }
-	100% { -webkit-transform: translateX(100%)	scale(0); }
-}
-
-@-moz-keyframes cssload-animation {
-	0%	 { -moz-transform: translateX(-100%) scale(0); }
-	50%	{ -moz-transform: translateX(0%)		scale(1); }
-	100% { -moz-transform: translateX(100%)	scale(0); }
-}
-
-
 
 
 
