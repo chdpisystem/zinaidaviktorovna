@@ -12,6 +12,16 @@ body{
     animation: back__section1__anim 10s linear infinite;
     background-size: 250% 250%;
 }
+.main__back{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1000;
+}
+.main__back svg{
+    width: 100%;
+    height: 100vh;
+}
 @keyframes back__section1__anim{
     0%{
         background-position: 0% 50%;
